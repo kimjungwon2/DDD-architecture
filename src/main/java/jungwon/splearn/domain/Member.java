@@ -1,11 +1,9 @@
 package jungwon.splearn.domain;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.Objects;
-
+import static java.util.Objects.requireNonNull;
 import static org.springframework.util.Assert.state;
 
 @Getter
@@ -19,15 +17,19 @@ public class Member {
 
     private MemberStatus status;
 
-    private Member(String email, String nickname, String passwordHash) {
-        this.email = Objects.requireNonNull(email);
-        this.nickname = Objects.requireNonNull(nickname);
-        this.passwordHash = Objects.requireNonNull(passwordHash);
-        this.status = MemberStatus.PENDING;
+    private Member() {
     }
 
-    public static Member create(String email, String nickname, String password, PasswordEncoder passwordHash){
-        return new Member(email, nickname, passwordHash.encode(password));
+    public static Member create(MemberCreateRequest createRequest, PasswordEncoder passwordHash){
+        Member member = new Member();
+
+        member.email = requireNonNull(createRequest.email());
+        member.nickname = requireNonNull(createRequest.nickname());
+        member.passwordHash = requireNonNull(passwordHash.encode(createRequest.password()));
+
+        member.status = MemberStatus.PENDING;
+
+        return member;
     }
 
     public void activate() {
@@ -47,10 +49,14 @@ public class Member {
     }
 
     public void changeNickName(String nickname) {
-        this.nickname = nickname;
+        this.nickname = requireNonNull(nickname);
     }
 
     public void changePassword(String password, PasswordEncoder passwordEncoder) {
-        this.passwordHash = passwordEncoder.encode(password);
+        this.passwordHash = passwordEncoder.encode(requireNonNull(password));
+    }
+
+    public boolean isActive() {
+        return this.status == MemberStatus.ACTIVE;
     }
 }
