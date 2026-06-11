@@ -22,6 +22,7 @@ public class Member {
 
     @Embedded
     @NaturalId
+    @Column(unique = true)
     private Email email;
 
     private String nickname;
