@@ -2,7 +2,7 @@ package jungwon.splearn.domain;
 
 public class MemberFixture {
     public static MemberRegisterRequest createMemberRegisterRequest(String email) {
-        return new MemberRegisterRequest(email, "Kim", "secret");
+        return new MemberRegisterRequest(email, "Kimdmds", "secretArdfjl");
     }
 
     public static PasswordEncoder createPasswordEncoder() {
