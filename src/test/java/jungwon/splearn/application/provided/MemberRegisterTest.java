@@ -1,6 +1,7 @@
 package jungwon.splearn.application.provided;
 
 
+import jakarta.validation.ConstraintViolationException;
 import jungwon.splearn.SplearnTestConfiguration;
 import jungwon.splearn.domain.*;
 import org.junit.jupiter.api.Test;
@@ -32,5 +33,17 @@ public record MemberRegisterTest(MemberRegister memberRegister) {
         Member member = memberRegister.register(MemberFixture.createMemberRegisterRequest());
         assertThatThrownBy(()->memberRegister.register(MemberFixture.createMemberRegisterRequest()))
                 .isInstanceOf(DuplicateEmailException.class);
+    }
+    
+    @Test
+    void memberRegisterRequestFail(){
+        extracted(new MemberRegisterRequest("toby@Splearn.app", "Toby", "longsecret"));
+        extracted(new MemberRegisterRequest("toby@Splearn.app", "Charlie________________________________________", "longsecret"));
+        extracted(new MemberRegisterRequest("tobySplearn.app", "Charlie________________________________________", "longsecret"));
+    }
+
+    private void extracted(MemberRegisterRequest invalid){
+        assertThatThrownBy(()->memberRegister.register(invalid))
+                .isInstanceOf(ConstraintViolationException.class);
     }
 }

@@ -6,7 +6,11 @@ import jungwon.splearn.application.required.MemberRepository;
 import jungwon.splearn.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
+@Transactional
+@Validated
 @Service
 public class MemberService implements MemberRegister {
 
