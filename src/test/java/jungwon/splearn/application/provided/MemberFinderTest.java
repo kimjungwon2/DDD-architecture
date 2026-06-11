@@ -2,7 +2,6 @@ package jungwon.splearn.application.provided;
 
 import jakarta.persistence.EntityManager;
 import jungwon.splearn.SplearnTestConfiguration;
-import jungwon.splearn.domain.DuplicateEmailException;
 import jungwon.splearn.domain.Member;
 import jungwon.splearn.domain.MemberFixture;
 import org.junit.jupiter.api.Test;
@@ -11,10 +10,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.TestConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 @Import(SplearnTestConfiguration.class)
 @Transactional
