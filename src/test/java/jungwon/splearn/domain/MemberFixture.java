@@ -1,6 +1,7 @@
 package jungwon.splearn.domain;
 
-import org.springframework.context.annotation.Primary;
+import jungwon.splearn.domain.member.MemberRegisterRequest;
+import jungwon.splearn.domain.member.PasswordEncoder;
 
 public class MemberFixture {
     public static MemberRegisterRequest createMemberRegisterRequest(String email) {

@@ -1,6 +1,6 @@
-package jungwon.splearn.application.required;
+package jungwon.splearn.application.member.required;
 
-import jungwon.splearn.domain.Email;
+import jungwon.splearn.domain.shared.Email;
 
 //이메일을 발송한다.
 public interface EmailSender {

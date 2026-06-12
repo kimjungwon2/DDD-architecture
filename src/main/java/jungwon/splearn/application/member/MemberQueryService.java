@@ -1,8 +1,8 @@
-package jungwon.splearn.application;
+package jungwon.splearn.application.member;
 
-import jungwon.splearn.application.provided.MemberFinder;
-import jungwon.splearn.application.required.MemberRepository;
-import jungwon.splearn.domain.Member;
+import jungwon.splearn.application.member.provided.MemberFinder;
+import jungwon.splearn.application.member.required.MemberRepository;
+import jungwon.splearn.domain.member.Member;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;

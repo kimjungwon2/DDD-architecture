@@ -1,8 +1,8 @@
-package jungwon.splearn.application.provided;
+package jungwon.splearn.application.member.provided;
 
 import jakarta.persistence.EntityManager;
 import jungwon.splearn.SplearnTestConfiguration;
-import jungwon.splearn.domain.Member;
+import jungwon.splearn.domain.member.Member;
 import jungwon.splearn.domain.MemberFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package jungwon.splearn.domain;
+package jungwon.splearn.domain.member;
 
 public interface PasswordEncoder {
     String encode(String password);

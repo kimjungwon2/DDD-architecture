@@ -1,10 +1,14 @@
-package jungwon.splearn.application;
+package jungwon.splearn.application.member;
 
-import jungwon.splearn.application.provided.MemberFinder;
-import jungwon.splearn.application.provided.MemberRegister;
-import jungwon.splearn.application.required.EmailSender;
-import jungwon.splearn.application.required.MemberRepository;
-import jungwon.splearn.domain.*;
+import jungwon.splearn.application.member.provided.MemberFinder;
+import jungwon.splearn.application.member.provided.MemberRegister;
+import jungwon.splearn.application.member.required.EmailSender;
+import jungwon.splearn.application.member.required.MemberRepository;
+import jungwon.splearn.domain.member.DuplicateEmailException;
+import jungwon.splearn.domain.member.Member;
+import jungwon.splearn.domain.member.MemberRegisterRequest;
+import jungwon.splearn.domain.member.PasswordEncoder;
+import jungwon.splearn.domain.shared.Email;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;

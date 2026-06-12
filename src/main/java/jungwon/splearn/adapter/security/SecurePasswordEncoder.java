@@ -1,6 +1,6 @@
 package jungwon.splearn.adapter.security;
 
-import jungwon.splearn.domain.PasswordEncoder;
+import jungwon.splearn.domain.member.PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 

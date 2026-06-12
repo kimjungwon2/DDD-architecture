@@ -1,4 +1,4 @@
-package jungwon.splearn.domain;
+package jungwon.splearn.domain.member;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;

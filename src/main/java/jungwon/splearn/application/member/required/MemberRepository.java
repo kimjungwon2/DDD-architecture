@@ -1,7 +1,7 @@
-package jungwon.splearn.application.required;
+package jungwon.splearn.application.member.required;
 
-import jungwon.splearn.domain.Email;
-import jungwon.splearn.domain.Member;
+import jungwon.splearn.domain.shared.Email;
+import jungwon.splearn.domain.member.Member;
 import org.springframework.data.repository.Repository;
 
 import java.util.Optional;

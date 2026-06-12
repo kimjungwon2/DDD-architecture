@@ -1,7 +1,7 @@
 package jungwon.splearn.adapter.integration;
 
-import jungwon.splearn.application.required.EmailSender;
-import jungwon.splearn.domain.Email;
+import jungwon.splearn.application.member.required.EmailSender;
+import jungwon.splearn.domain.shared.Email;
 import org.springframework.context.annotation.Fallback;
 import org.springframework.stereotype.Component;
 

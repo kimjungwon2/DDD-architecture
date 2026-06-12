@@ -1,8 +1,8 @@
 package jungwon.splearn;
 
-import jungwon.splearn.application.required.EmailSender;
+import jungwon.splearn.application.member.required.EmailSender;
 import jungwon.splearn.domain.MemberFixture;
-import jungwon.splearn.domain.PasswordEncoder;
+import jungwon.splearn.domain.member.PasswordEncoder;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;

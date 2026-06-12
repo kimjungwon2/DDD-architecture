@@ -1,4 +1,4 @@
-package jungwon.splearn.domain;
+package jungwon.splearn.domain.shared;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
