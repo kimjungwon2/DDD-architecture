@@ -114,7 +114,7 @@ class MemberTest {
     @Test
     void updateInfo(){
         member.activate();
-        var request = new MemberInfoUpdateRequest("Leo", "toby100","자기소개")
+        var request = new MemberInfoUpdateRequest("Leo", "toby100","자기소개");
         member.updateInfo(new MemberInfoUpdateRequest("Leo","toby100","자기소개"));
 
 

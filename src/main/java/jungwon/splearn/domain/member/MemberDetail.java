@@ -1,9 +1,6 @@
 package jungwon.splearn.domain.member;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 import jungwon.splearn.domain.AbstractEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -23,8 +20,10 @@ public class MemberDetail extends AbstractEntity {
     @Embedded
     private Profile profile;
 
+    @Column(columnDefinition = "TEXT")
     private String introduction;
 
+    @Column(nullable = false)
     private LocalDateTime registeredAt;
 
     private LocalDateTime activatedAt;

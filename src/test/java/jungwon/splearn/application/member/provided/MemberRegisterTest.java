@@ -5,10 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.validation.ConstraintViolationException;
 import jungwon.splearn.SplearnTestConfiguration;
 import jungwon.splearn.domain.*;
-import jungwon.splearn.domain.member.DuplicateEmailException;
-import jungwon.splearn.domain.member.Member;
-import jungwon.splearn.domain.member.MemberRegisterRequest;
-import jungwon.splearn.domain.member.MemberStatus;
+import jungwon.splearn.domain.member.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
@@ -49,6 +46,32 @@ record MemberRegisterTest(MemberRegister memberRegister, EntityManager entityMan
         entityManager.flush();
 
         assertThat(member.getStatus()).isEqualTo(MemberStatus.ACTIVE);
+    }
+
+    @Test
+    void deactivate(){
+        Member member = memberRegister.register(MemberFixture.createMemberRegisterRequest());
+        entityManager.flush();
+        entityManager.clear();
+
+        member = memberRegister.activate(member.getId());
+        entityManager.flush();
+
+        memberRegister.deactivate(member.getId());
+
+        assertThat(member.getStatus()).isEqualTo(MemberStatus.DEACTIVATED);
+        assertThat(member.getDetail().getDeactivatedAt()).isNotNull();
+    }
+    
+    @Test
+    void updateInfo(){
+        Member member = memberRegister.register(MemberFixture.createMemberRegisterRequest());
+        memberRegister.activate(member.getId());
+        entityManager.flush();
+        entityManager.clear();
+
+        member = memberRegister.updateInfo(member.getId(), new MemberInfoUpdateRequest("Peter", "toby100", "자기소개"));
+        assertThat(member.getDetail().getProfile().address()).isEqualTo("toby100");
     }
     
     @Test

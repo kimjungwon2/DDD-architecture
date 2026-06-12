@@ -4,10 +4,7 @@ import jungwon.splearn.application.member.provided.MemberFinder;
 import jungwon.splearn.application.member.provided.MemberRegister;
 import jungwon.splearn.application.member.required.EmailSender;
 import jungwon.splearn.application.member.required.MemberRepository;
-import jungwon.splearn.domain.member.DuplicateEmailException;
-import jungwon.splearn.domain.member.Member;
-import jungwon.splearn.domain.member.MemberRegisterRequest;
-import jungwon.splearn.domain.member.PasswordEncoder;
+import jungwon.splearn.domain.member.*;
 import jungwon.splearn.domain.shared.Email;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,6 +45,23 @@ public class MemberService implements MemberRegister {
         Member member = memberFinder.find(memberId);
 
         member.activate();
+
+        return memberRepository.save(member);
+    }
+
+    @Override
+    public Member deactivate(Long memberId) {
+        Member member = memberFinder.find(memberId);
+        member.deactivate();
+
+        return memberRepository.save(member);
+    }
+
+    @Override
+    public Member updateInfo(Long memberId, MemberInfoUpdateRequest memberInfoUpdateRequest) {
+        Member member = memberFinder.find(memberId);
+
+        member.updateInfo(memberInfoUpdateRequest);
 
         return memberRepository.save(member);
     }
