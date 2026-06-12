@@ -1,5 +1,7 @@
 package jungwon.splearn.domain;
 
+import org.springframework.context.annotation.Primary;
+
 public class MemberFixture {
     public static MemberRegisterRequest createMemberRegisterRequest(String email) {
         return new MemberRegisterRequest(email, "Kimdmds", "secretArdfjl");

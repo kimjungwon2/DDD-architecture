@@ -5,6 +5,7 @@ import jungwon.splearn.domain.MemberFixture;
 import jungwon.splearn.domain.PasswordEncoder;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 
 @TestConfiguration
 public class SplearnTestConfiguration {
@@ -14,6 +15,7 @@ public class SplearnTestConfiguration {
     }
 
     @Bean
+    @Primary
     public static PasswordEncoder passwordEncoder(){
         return MemberFixture.createPasswordEncoder();
     }
