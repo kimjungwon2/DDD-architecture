@@ -15,7 +15,7 @@ import static org.springframework.util.Assert.state;
 @Table(name = "MEMBER",
         uniqueConstraints = @UniqueConstraint(name="UK_MEMBER_EMAIL_ADDRESS", columnNames = "email_address"))
 @Getter
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @NaturalIdCache
 public class Member extends AbstractEntity {
